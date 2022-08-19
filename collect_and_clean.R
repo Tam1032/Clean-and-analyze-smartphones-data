@@ -38,3 +38,8 @@ train_test <- cbind(y_test,subject_test,X_test)
 full <- rbind(train_data, train_test)
 names(full)[1:2] <- c('Activity','Subject')
 
+#select the mean and std columns
+col_mean <- grep(pattern = "mean\\(\\)",columns)
+col_std <- grep(pattern = "std\\(\\)",columns)
+data <- full %>% select(Activity,Subject,columns[c(col_mean,col_std)])
+
