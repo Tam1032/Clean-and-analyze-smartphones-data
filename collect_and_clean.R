@@ -51,3 +51,13 @@ activity_label <- read.table(file = paste(path,'activity_labels.txt',sep=''),hea
 names(data)[1] = 'ID'
 data <- merge(data, activity_label,by.x = 'ID',by.y = 'ID')
 
+#Rename the meaningless features
+abb <- c('^t', '^f', '-', 'mean\\(\\)', 'std\\(\\)', '-X', '-Y', '-Z', 'AccJerk', 'Acc', 'GyroJerk', 'Gyro', 'Mag')
+abb_name <- c('TimeDomain: ', 'Frequency domain: ', ', ', 'mean value', 'standard deviation value', ' on X axis', ' on Y axis', ' on Z axis',
+              ' acceleration jerk', ' acceleration', ' angular velocity jerk', ' angular velocity', ' magnitude ')
+for (i in 1:length(abb))
+{
+  colnames(data) <- names(data) %>% sub(pattern=abb[i], replacement=abb_name[i])
+}
+
+
