@@ -30,4 +30,11 @@ names(X_test) <- columns
 y_test <- read.table(file = paste(path,'test/y_test.txt',sep=''),header = FALSE)
 subject_test <- read.table(file = paste(path,'test/subject_test.txt',sep=''),header = FALSE)
 
+#Merge columns x, y and subject
+train_data <- cbind(y_train,subject_train,X_train)
+train_test <- cbind(y_test,subject_test,X_test)
+
+#Merge train and test set
+full <- rbind(train_data, train_test)
+names(full)[1:2] <- c('Activity','Subject')
 
