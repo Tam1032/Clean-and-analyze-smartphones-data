@@ -13,7 +13,7 @@ download.file(url = url,destfile = "human_activity.zip")
 unzip('human_activity.zip',exdir = 'data')
 date_of_download <- date()
 
-#Read the columns' names
+#Read the columns names
 path = "data/UCI HAR Dataset/"
 features <- read.table(file = paste(path,'features.txt',sep=''),header = FALSE,sep = '',
                        col.names = c('ID','Features'))
@@ -42,4 +42,12 @@ names(full)[1:2] <- c('Activity','Subject')
 col_mean <- grep(pattern = "mean\\(\\)",columns)
 col_std <- grep(pattern = "std\\(\\)",columns)
 data <- full %>% select(Activity,Subject,columns[c(col_mean,col_std)])
+
+#Read the activity names
+activity_label <- read.table(file = paste(path,'activity_labels.txt',sep=''),header = FALSE,
+                             col.names = c('ID','Activity'))
+
+#Convert the activity from int to string by merging with the activity names
+names(data)[1] = 'ID'
+data <- merge(data, activity_label,by.x = 'ID',by.y = 'ID')
 
