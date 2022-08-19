@@ -18,3 +18,16 @@ path = "data/UCI HAR Dataset/"
 features <- read.table(file = paste(path,'features.txt',sep=''),header = FALSE,sep = '',
                        col.names = c('ID','Features'))
 columns <- features$Features
+
+#Read train and test
+X_train <- read.table(file = paste(path,'train/X_train.txt',sep=''),header = FALSE)
+names(X_train) <- columns
+y_train <- read.table(file = paste(path,'train/y_train.txt',sep=''),header = FALSE)
+subject_train <- read.table(file = paste(path,'train/subject_train.txt',sep=''),header = FALSE)
+
+X_test <- read.table(file = paste(path,'test/X_test.txt',sep=''),header = FALSE)
+names(X_test) <- columns
+y_test <- read.table(file = paste(path,'test/y_test.txt',sep=''),header = FALSE)
+subject_test <- read.table(file = paste(path,'test/subject_test.txt',sep=''),header = FALSE)
+
+
