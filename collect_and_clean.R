@@ -64,4 +64,4 @@ for (i in 1:length(abb))
 tidy <- aggregate(formula = .~Subject+Activity,data = data[,2:69] ,FUN = mean)
 
 #Save the tidy dataset into the csv file
-write.csv(tidy,'tidy_data.csv',row.names = FALSE)
+write.csv(tidy,'data/tidy_data.csv',row.names = FALSE)
