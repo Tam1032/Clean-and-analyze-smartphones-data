@@ -2,6 +2,7 @@ rm(list = ls())
 library(caret)
 library(dplyr)
 library(ggplot2)
+library(nnet)
 
 #Read the dataset
 data <- read.csv("data/tidy_data.csv")
@@ -47,3 +48,12 @@ knn_predictions <- predict(fit.knn, validation)
 cfm_knn <- confusionMatrix(knn_predictions, as.factor(validation$Activity))
 cfm_knn$overall['Accuracy']
 plotConfusionMatrix(cfm_knn)
+
+#Run the multinomial logistic regression algorithm and plot confusion matrix
+set.seed(7)
+fit.logist <- train(Activity~., data=training, method="multinom",
+                 metric=metric, trControl=control)
+logist_predictions <- predict(fit.logist, validation)
+cfm_logist <- confusionMatrix(logist_predictions, as.factor(validation$Activity))
+cfm_logist$overall['Accuracy']
+plotConfusionMatrix(cfm_logist)
