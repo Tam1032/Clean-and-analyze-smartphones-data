@@ -17,3 +17,9 @@ The data collection and cleaning involve the following steps:
 6. Save the tidy dataset into a csv file
 
 More details can be found in the code.
+
+## Running Machine Learning algorithms
+
+First, the data is divided into the training set and the testing set with the ratio 8:2. After that, the k-Nearest Neighbour (kNN) and the Penalized Multinomial Regression algorithms are run with the Accuracy metric. The results are quite impressive:
+- kNN: 94.44%
+- Penalized Multinomial Regression: 100%
