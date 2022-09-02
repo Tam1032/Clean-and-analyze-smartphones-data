@@ -17,6 +17,7 @@ percentage <- prop.table(table(data$Activity)) * 100
 cbind(freq=table(data$Activity), percentage=percentage)
 
 #Split the train and test set
+set.seed(7)
 train_index <- createDataPartition(data$Activity,
                                         p=0.80, list=FALSE)
 validation <- data[-train_index,]
