@@ -22,10 +22,10 @@ More details can be found in the code.
 
 After cleaning, the data is divided into the training set and the testing set with the ratio 8:2. After that, the k-Nearest Neighbour (kNN) and the Penalized Multinomial Regression algorithms are implemented for classifying different activities. The results are evaluated on the accuracy metric and the confusion matrix:
 * kNN: 
-- Accuracy: 91.67%
-- Confusion matrix: ![kNN](/images/kNN.png)
+  - Accuracy: 91.67%
+  - Confusion matrix: ![kNN](/images/kNN.png)
 * Penalized Multinomial Regression: 
-- Acciracy: 94.44%
-- Confusion matrix: ![multinom](/images/multinom.png)
+  - Acciracy: 94.44%
+  - Confusion matrix: ![multinom](/images/multinom.png)
 
 The results are quite impressive since the dataset is relatively small and we just run the algorithms once. We can run the algorithms several times and take the average results to evaluate the algorithms more precisely.
